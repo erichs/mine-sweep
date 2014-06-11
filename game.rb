@@ -3,6 +3,13 @@
 class InvalidInput < Exception
 end
 
+class Game
+  def initialize file_name=""
+    raise InvalidInput unless File.exist? file_name
+
+  end
+end
+
 class Grid
 
 end
