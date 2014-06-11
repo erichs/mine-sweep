@@ -3,7 +3,6 @@
 class InvalidInput < Exception
 end
 
-require 'debugger'
 class Game
   MINE_STR = '@'
 
@@ -38,7 +37,7 @@ class Game
     def mine_sweep!
       each_cell_with_index do |cell, row_idx, col_idx|
         next if is_mine? cell
-        @field[row_idx][col_idx] = number_mine_neighbors(row_idx, col_idx)
+        @field[row_idx][col_idx] = count_nearby_mines(row_idx, col_idx)
       end
     end
 
@@ -50,7 +49,7 @@ class Game
       end
     end
 
-    def number_mine_neighbors row_idx, col_idx
+    def count_nearby_mines row_idx, col_idx
       neighbors_of(row_idx, col_idx).select{|cell| is_mine?(cell)}.count
     end
 
@@ -81,11 +80,7 @@ class Game
     end
 end
 
-class Grid
-
-end
-
 if __FILE__ == $0
   # this will only run if the script was the main, not load'd or require'd
-  puts 42
+  puts Game.new(ARGV[0]).display
 end

@@ -37,11 +37,3 @@ describe Game do
     game.display.scan(/2/).count.must_equal 2
   end
 end
-
-describe Grid do
-
-  it "must know the meaning of life" do
-    life = 42
-    life.must_equal 42
-  end
-end
