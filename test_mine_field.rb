@@ -24,6 +24,13 @@ describe Game do
     game = Game.new('examples/4_by_4_blank.txt')
     game.display.scan(/0/).count.must_equal 16
   end
+
+  it "detects mines in a top row" do
+    game = Game.new('examples/1_by_3_has_1_mine.txt')
+    output = game.display
+    puts output
+    output.scan(/1/).count.must_equal 1
+  end
 end
 
 describe Grid do
