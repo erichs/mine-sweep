@@ -20,7 +20,6 @@ a mine and the character '-' represents no-mine.
 Example input (a 3 x 4 mine-field of 12 squares, 2 of
 which are mines)
 
-3 4
 @---
 --@-
 ----

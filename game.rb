@@ -4,9 +4,12 @@ class InvalidInput < Exception
 end
 
 class Game
+  attr_accessor :rows, :columns
   def initialize file_name=""
     raise InvalidInput unless File.exist? file_name
-
+    input    = File.read(file_name).split
+    @rows    = input.count
+    @columns = input.first.length
   end
 end
 
