@@ -56,14 +56,20 @@ class Game
 
     def neighbors_of row_idx, col_idx
       neighbors = []
-      [row_idx - 1, row_idx, row_idx + 1].each do |row|
-        [col_idx - 1, col_idx, col_idx + 1].each do |col|
+      each_adjacent(row_idx) do |row|
+        each_adjacent(col_idx) do |col|
           next if row == row_idx and col == col_idx
           next unless within_field?(row, col)
           neighbors << @field[row][col]
         end
       end
       neighbors
+    end
+
+    def each_adjacent idx
+      [idx - 1, idx, idx + 1].each do |index|
+        yield index
+      end
     end
 
     def within_field?(row, col)

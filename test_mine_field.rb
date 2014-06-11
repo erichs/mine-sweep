@@ -31,6 +31,11 @@ describe Game do
     puts output
     output.scan(/1/).count.must_equal 1
   end
+
+  it "detects mines in two dimensions" do
+    game = Game.new('examples/4_by_4_has_2_mines.txt')
+    game.display.scan(/2/).count.must_equal 2
+  end
 end
 
 describe Grid do
