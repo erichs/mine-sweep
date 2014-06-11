@@ -1,4 +1,6 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bundle exec ruby
+
+require 'colorize'
 
 class InvalidInput < Exception
 end
@@ -22,7 +24,7 @@ class Game
     @field.each do |row|
       output << row.join + "\n"
     end
-    output
+    output.gsub(MINE_STR, MINE_STR.red)
   end
 
   private
