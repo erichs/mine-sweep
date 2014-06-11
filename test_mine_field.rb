@@ -19,6 +19,11 @@ describe Game do
     n.must_equal 4
     m.must_equal 5
   end
+
+  it "displays zeroes for blank input" do
+    game = Game.new('examples/4_by_4_blank.txt')
+    game.display.scan(/0/).count.must_equal 16
+  end
 end
 
 describe Grid do
